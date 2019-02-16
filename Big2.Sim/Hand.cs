@@ -151,12 +151,10 @@ namespace Big2.Sim
                 return false;
             }
 
-            var has = Cards
+            return Cards
                 .GroupBy(x => x.Suit)
                 .Where(g => g.Count() >= 5)
                 .Any(a => (new Hand(Cards.Where(c => c.Suit == a.Key))).HasStraight());
-
-            return has;
         }
 
         private bool HasRoyalFlush()
